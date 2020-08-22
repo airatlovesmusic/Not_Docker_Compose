@@ -13,6 +13,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.airatlovesmusic.compose.widgets.simpleToolbar
+import com.airatlovesmusic.model.Article
+
+val articles = (0..10).map {
+    Article(
+        title = "title$it",
+        url = "url$it"
+    )
+}
 
 @Composable
 fun FirstScreen(goToSecondScreen: () -> Unit) {
@@ -24,10 +32,12 @@ fun FirstScreen(goToSecondScreen: () -> Unit) {
                 horizontalGravity = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,
             ) {
-                Text(
-                    text = "Hello world!",
-                    style = typography.h4
-                )
+                articles.forEach {
+                    Column {
+                        Text(it.title)
+                        Text(it.url)
+                    }
+                }
                 Button(onClick = goToSecondScreen) {
                     Text(text = "Click Me")
                 }

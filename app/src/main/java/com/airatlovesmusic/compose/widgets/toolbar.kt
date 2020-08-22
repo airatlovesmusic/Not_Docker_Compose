@@ -8,7 +8,9 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.runtime.Composable
 
+@Composable
 fun simpleToolbar(title: String, onNavigationIconClick: () -> Unit = {}) {
     TopAppBar(
         navigationIcon = {
