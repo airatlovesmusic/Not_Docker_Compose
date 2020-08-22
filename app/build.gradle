@@ -55,4 +55,7 @@ dependencies {
     implementation deps.androidx.lifecycle.livedata_ktx
     implementation deps.androidx.lifecycle.viewmodel_ktx
     implementation deps.androidx.lifecycle.viewmodel_savedstate
+
+    implementation deps.hilt.android
+    kapt deps.hilt.compiler
 }
