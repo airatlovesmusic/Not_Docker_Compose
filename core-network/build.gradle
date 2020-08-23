@@ -23,6 +23,13 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
     implementation deps.hilt.android
     kapt deps.hilt.compiler
+
+    implementation deps.network.retrofit
+    implementation deps.network.retrofit_gson
+    implementation deps.network.retrofit_coroutines
+    implementation deps.network.okhttp
+    implementation deps.network.okhttp_logger
 }
