@@ -6,7 +6,6 @@ plugins {
 
 android {
     compileSdkVersion(30)
-    buildToolsVersion("29.0.3")
 
     defaultConfig {
         applicationId = "com.airatlovesmusic.compose"
@@ -20,6 +19,11 @@ android {
         compose = true
     }
 
+    composeOptions {
+        kotlinCompilerVersion = "1.4.0"
+        kotlinCompilerExtensionVersion = "1.0.0-alpha04"
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -27,7 +31,9 @@ android {
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+        useIR = true
     }
+
 }
 
 dependencies {
