@@ -1,9 +1,10 @@
+import Dependencies
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion deps.android.build.compileSdkVersion
     buildToolsVersion deps.android.build.buildToolsVersion
 
     defaultConfig {
@@ -36,25 +37,20 @@ android {
 dependencies {
     implementation project (":model")
     implementation project (":core-network")
-    implementation deps.stdLib
 
-    implementation deps.androidx.appcompat
-    implementation deps.androidx.ktx.activity
-    implementation deps.androidx.ktx.core
+    implementation Dependencies.AndroidX.appcompat
+    implementation Dependencies.AndroidX.coreKtx
 
-    implementation deps.androidx.compose.runtime
-    implementation deps.androidx.compose.compiler
+    implementation Dependencies.AndroidX.Compose.core
+    implementation Dependencies.AndroidX.Compose.foundation
+    implementation Dependencies.AndroidX.Compose.layout
+    implementation Dependencies.AndroidX.Compose.material
+    implementation Dependencies.AndroidX.Compose.runtime
+    implementation Dependencies.AndroidX.Compose.runtimeLivedata
+    implementation Dependencies.AndroidX.Compose.tooling
+    implementation Dependencies.AndroidX.Compose.test
 
-    implementation deps.androidx.compose.animation
-    implementation deps.androidx.compose.foundation
-    implementation deps.androidx.compose.foundation_layout
-    implementation deps.androidx.compose.runtime_livedata
-    implementation deps.androidx.compose.material
-    implementation deps.androidx.ui.tooling
-    implementation deps.androidx.ui.test
-
-    implementation deps.androidx.lifecycle.livedata_ktx
-    implementation deps.androidx.lifecycle.viewmodel_ktx
-    implementation deps.androidx.lifecycle.viewmodel_savedstate
-
+    implementation Dependencies.AndroidX.Lifecycle.livedata
+    implementation Dependencies.AndroidX.Lifecycle.viewmodel
+    implementation Dependencies.AndroidX.Lifecycle.extensions
 }
