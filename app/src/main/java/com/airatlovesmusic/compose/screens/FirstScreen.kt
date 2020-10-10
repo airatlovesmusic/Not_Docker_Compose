@@ -6,13 +6,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.airatlovesmusic.compose.widgets.simpleToolbar
+import com.airatlovesmusic.compose.widgets.toolbar
 import com.airatlovesmusic.model.Article
 
 val articles = (0..10).map {
@@ -25,7 +24,7 @@ val articles = (0..10).map {
 @Composable
 fun FirstScreen(goToSecondScreen: () -> Unit) {
     Scaffold(
-        topBar = { simpleToolbar("Compose App") { goToSecondScreen.invoke() } },
+        topBar = { toolbar("Compose App") { goToSecondScreen.invoke() } },
         bodyContent = {
             Column(
                 modifier = Modifier.padding(16.dp).fillMaxSize(),

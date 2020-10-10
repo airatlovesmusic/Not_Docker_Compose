@@ -10,7 +10,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.setContent
 import com.airatlovesmusic.compose.screens.FirstScreen
-import com.airatlovesmusic.compose.screens.Screens
 import com.airatlovesmusic.compose.screens.SecondScreen
 
 class AppActivity: AppCompatActivity() {

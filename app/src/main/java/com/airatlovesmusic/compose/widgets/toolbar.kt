@@ -11,7 +11,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 
 @Composable
-fun simpleToolbar(title: String, onNavigationIconClick: () -> Unit = {}) {
+fun toolbar(title: String, onNavigationIconClick: () -> Unit = {}) {
     TopAppBar(
         navigationIcon = {
             IconButton(onClick = onNavigationIconClick) {

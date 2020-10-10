@@ -10,12 +10,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.airatlovesmusic.compose.widgets.simpleToolbar
+import com.airatlovesmusic.compose.widgets.toolbar
 
 @Composable
 fun SecondScreen(goToFirstScreen: () -> Unit) {
     Scaffold(
-        topBar = { simpleToolbar("Compose App") { goToFirstScreen.invoke() } },
+        topBar = { toolbar("Compose App") { goToFirstScreen.invoke() } },
         bodyContent = {
             Column(
                 modifier = Modifier.padding(16.dp).fillMaxSize(),
