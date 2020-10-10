@@ -42,6 +42,7 @@ dependencies {
 
     implementation(Dependencies.AndroidX.appcompat)
     implementation(Dependencies.AndroidX.coreKtx)
+    implementation(Dependencies.AndroidX.activityKtx)
 
     implementation(Dependencies.AndroidX.Compose.core)
     implementation(Dependencies.AndroidX.Compose.foundation)

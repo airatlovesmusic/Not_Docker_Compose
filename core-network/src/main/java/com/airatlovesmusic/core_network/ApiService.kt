@@ -17,8 +17,8 @@ interface ApiService {
     suspend fun getArticles(): List<Article>
 }
 
-fun getApiService(retrofit: Retrofit): ApiService =
-    retrofit.create(ApiService::class.java)
+fun getApiService(): ApiService =
+    getRetrofit().create(ApiService::class.java)
 
 private fun getOkHttpClient(): OkHttpClient =
     OkHttpClient.Builder()
@@ -28,9 +28,9 @@ private fun getOkHttpClient(): OkHttpClient =
         .retryOnConnectionFailure(true)
         .build()
 
-private fun getRetrofit(okHttpClient: OkHttpClient): Retrofit =
+private fun getRetrofit(): Retrofit =
     Retrofit.Builder()
-        .client(okHttpClient)
+        .client(getOkHttpClient())
         .baseUrl("https://raw.githubusercontent.com/airatlovesmusic/")
         .addCallAdapterFactory(CoroutineCallAdapterFactory.invoke())
         .addConverterFactory(GsonConverterFactory.create())
