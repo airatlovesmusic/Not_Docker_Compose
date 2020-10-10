@@ -10,6 +10,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.airatlovesmusic.compose.Screens
 import com.airatlovesmusic.compose.widgets.toolbar
 import com.airatlovesmusic.model.Article
 
@@ -21,9 +22,9 @@ val articles = (0..10).map {
 }
 
 @Composable
-fun FirstScreen(goToSecondScreen: () -> Unit) {
+fun Articles(navigateTo: (Screens) -> Unit) {
     Scaffold(
-        topBar = { toolbar("Compose App") { goToSecondScreen.invoke() } },
+        topBar = { toolbar("Compose App") { navigateTo(Screens.Second) } },
         bodyContent = {
             Column(
                 modifier = Modifier.padding(16.dp).fillMaxSize(),
@@ -35,7 +36,7 @@ fun FirstScreen(goToSecondScreen: () -> Unit) {
                         Text(it.url)
                     }
                 }
-                Button(onClick = goToSecondScreen) {
+                Button(onClick = { navigateTo(Screens.Second) }) {
                     Text(text = "Click Me")
                 }
             }
