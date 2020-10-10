@@ -1,4 +1,4 @@
+include ':app'
 include ':core-network'
 include ':model'
-include ':app'
 rootProject.name = "Compose"

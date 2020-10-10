@@ -25,9 +25,7 @@ object Dependencies {
         const val coreKtx = "androidx.core:core-ktx:1.5.0-alpha01"
 
         object Compose {
-            const val snapshot = ""
             const val version = "1.0.0-alpha04"
-
             const val core = "androidx.compose.ui:ui:$version"
             const val foundation = "androidx.compose.foundation:foundation:$version"
             const val layout = "androidx.compose.foundation:foundation-layout:$version"
@@ -64,6 +62,22 @@ object Dependencies {
             const val extensions = "androidx.lifecycle:lifecycle-extensions:$version"
             const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$version"
             const val viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$version"
+        }
+    }
+
+    object Network {
+
+        object OkHttp {
+            const val version = "4.7.2"
+            const val core = "com.squareup.okhttp3:okhttp:$version"
+            const val logger = "com.squareup.okhttp3:logging-interceptor:$version"
+        }
+
+        object Retrofit {
+            const val version = "2.8.2"
+            const val core = "com.squareup.retrofit2:retrofit:$version"
+            const val gson = "com.squareup.retrofit2:converter-gson:$version"
+            const val coroutines = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
         }
     }
 }

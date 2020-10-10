@@ -19,7 +19,6 @@ fun SecondScreen(goToFirstScreen: () -> Unit) {
         bodyContent = {
             Column(
                 modifier = Modifier.padding(16.dp).fillMaxSize(),
-                horizontalGravity = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,
             ) {
                 Text(
