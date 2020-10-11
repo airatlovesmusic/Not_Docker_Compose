@@ -3,14 +3,13 @@ package com.airatlovesmusic.compose.screens.articles
 import androidx.compose.foundation.ScrollableColumn
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -33,30 +32,37 @@ fun Articles(navigateTo: (Screens) -> Unit, apiService: ApiService) {
     val viewState = viewModel.state.collectAsState()
     Scaffold(
         topBar = { toolbar("Articles") },
-        bodyContent = {
-            if (viewModel.state.value.isRefreshing) {
-                CircularProgressIndicator()
-            }
-            ScrollableColumn(
-                modifier = Modifier.padding(16.dp).fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
-            ) {
-                viewState.value.articles.forEach {
-                    Column(
-                        modifier = Modifier
-                            .clickable(onClick = { navigateTo.invoke(Screens.Article(it.url)) })
-                    ) {
-                        Text(
-                            text = it.title,
-                            style = MaterialTheme.typography.h6
-                        )
-                        Text(
-                            text = it.url,
-                            style = MaterialTheme.typography.subtitle1
-                        )
-                    }
-                }
-            }
-        },
+        bodyContent = { ArticlesContent(viewState, navigateTo) },
     )
+}
+
+@Composable
+private fun ArticlesContent(
+    viewState: State<ArticlesViewModel.State>,
+    navigateTo: (Screens) -> Unit
+) {
+    if (viewState.value.isRefreshing) {
+        CircularProgressIndicator()
+    }
+    ScrollableColumn(
+        verticalArrangement = Arrangement.Center
+    ) {
+        viewState.value.articles.forEach {
+            Column(
+                modifier = Modifier
+                    .clickable { navigateTo.invoke(Screens.Article(it.url)) }
+                    .padding(16.dp)
+            ) {
+                Text(
+                    text = it.title,
+                    style = MaterialTheme.typography.h6
+                )
+                Text(
+                    text = it.url,
+                    style = MaterialTheme.typography.subtitle1
+                )
+            }
+            Divider()
+        }
+    }
 }

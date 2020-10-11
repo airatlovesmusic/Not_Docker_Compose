@@ -27,6 +27,12 @@ class AppActivity: AppCompatActivity() {
         setContent { App(appContext, navigationViewModel) }
     }
 
+    override fun onBackPressed() {
+        if (!navigationViewModel.onBack()) {
+            super.onBackPressed()
+        }
+    }
+
     @Composable
     fun App(
         appContext: AppContext,
