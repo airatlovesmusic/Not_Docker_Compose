@@ -1,4 +1,4 @@
-package com.airatlovesmusic.compose.screens
+package com.airatlovesmusic.compose.screens.articles
 
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.Arrangement
@@ -6,12 +6,16 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.viewModel
 import com.airatlovesmusic.compose.Screens
 import com.airatlovesmusic.compose.widgets.toolbar
+import com.airatlovesmusic.core_network.ApiService
 import com.airatlovesmusic.model.Article
 
 val articles = (0..10).map {
@@ -22,15 +26,20 @@ val articles = (0..10).map {
 }
 
 @Composable
-fun Articles(navigateTo: (Screens) -> Unit) {
+fun Articles(navigateTo: (Screens) -> Unit, apiService: ApiService) {
+    val viewModel: ArticlesViewModel = viewModel(factory = Factory(apiService))
+    val viewState = viewModel.state.collectAsState()
     Scaffold(
         topBar = { toolbar("Compose App") { navigateTo(Screens.Second) } },
         bodyContent = {
+            if (viewModel.state.value.isRefreshing) {
+                CircularProgressIndicator()
+            }
             Column(
                 modifier = Modifier.padding(16.dp).fillMaxSize(),
                 verticalArrangement = Arrangement.Center,
             ) {
-                articles.forEach {
+                viewState.value.articles.forEach {
                     Column {
                         Text(it.title)
                         Text(it.url)
