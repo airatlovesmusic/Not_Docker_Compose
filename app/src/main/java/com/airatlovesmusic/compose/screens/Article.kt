@@ -15,7 +15,7 @@ import com.airatlovesmusic.compose.widgets.toolbar
 @Composable
 fun Article(navigateTo: (Screens) -> Unit) {
     Scaffold(
-        topBar = { toolbar("Compose App") { navigateTo(Screens.First) } },
+        topBar = { toolbar("Article", true) { navigateTo(Screens.First) } },
         bodyContent = {
             Column(
                 modifier = Modifier.padding(16.dp).fillMaxSize(),
@@ -25,9 +25,9 @@ fun Article(navigateTo: (Screens) -> Unit) {
                     text = "Second Screen!",
                     style = MaterialTheme.typography.h4
                 )
-                Button(onClick = { navigateTo(Screens.First) }) {
-                    Text(text = "Click Me")
-                }
+                Button(
+                    onClick = { navigateTo(Screens.First) }
+                ) { Text(text = "Click Me") }
             }
         }
     )
