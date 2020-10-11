@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.viewModel
 import com.airatlovesmusic.compose.Screens
 import com.airatlovesmusic.compose.widgets.toolbar
+import com.airatlovesmusic.compose.widgets.toolbarWithNavigationIcon
 import com.airatlovesmusic.core_network.ApiService
 
 @Composable
@@ -25,7 +26,7 @@ fun Article(
     val viewModel: ArticleViewModel = viewModel(factory = Factory(articleId, apiService))
     val viewState = viewModel.state.collectAsState()
     Scaffold(
-        topBar = { toolbar("Article", true) { goBack() } },
+        topBar = { toolbarWithNavigationIcon("Article") { goBack() } },
         bodyContent = { ArticleContent(viewState) }
     )
 }

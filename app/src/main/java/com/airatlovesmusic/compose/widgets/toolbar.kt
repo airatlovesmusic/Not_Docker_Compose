@@ -14,17 +14,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun toolbar(
+fun toolbar(title: String) {
+    TopAppBar(
+        title = {
+            Text(
+                text = title,
+                style = MaterialTheme.typography.h6,
+                color = contentColor()
+            )
+        }
+    )
+}
+
+@Composable
+fun toolbarWithNavigationIcon(
     title: String,
-    showBackButton: Boolean = false,
     onNavigationIconClick: () -> Unit = {}
 ) {
     TopAppBar(
         navigationIcon = {
-            if (showBackButton) {
-                IconButton(onClick = onNavigationIconClick) {
-                    Icon(Icons.Filled.ArrowBack)
-                }
+            IconButton(onClick = onNavigationIconClick) {
+                Icon(Icons.Filled.ArrowBack)
             }
         },
         title = {

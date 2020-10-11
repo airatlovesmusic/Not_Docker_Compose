@@ -36,6 +36,19 @@ android {
 
 }
 
+kotlin {
+    sourceSets {
+        all {
+            languageSettings.apply {
+                useExperimentalAnnotation("kotlin.ExperimentalStdlibApi")
+                useExperimentalAnnotation("kotlinx.coroutines.ExperimentalCoroutinesApi")
+                useExperimentalAnnotation("kotlinx.coroutines.FlowPreview")
+                useExperimentalAnnotation("kotlinx.coroutines.InternalCoroutinesApi")
+            }
+        }
+    }
+}
+
 dependencies {
     implementation(project (":model"))
     implementation(project(":core-network"))
