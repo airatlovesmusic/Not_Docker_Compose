@@ -31,7 +31,7 @@ fun Bundle.toScreen(): Screens =
     }
 
 class NavigationViewModel(
-    private val savedStateHandle: SavedStateHandle
+    savedStateHandle: SavedStateHandle
 ): ViewModel() {
 
     var currentScreen: Screens by savedStateHandle.getMutableStateOf(
