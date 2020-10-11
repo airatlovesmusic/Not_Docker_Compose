@@ -9,7 +9,7 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.setContent
 import com.airatlovesmusic.compose.screens.articles.Articles
-import com.airatlovesmusic.compose.screens.Article
+import com.airatlovesmusic.compose.screens.article.Article
 import com.airatlovesmusic.core_network.ApiService
 import com.airatlovesmusic.core_network.getApiService
 
@@ -48,8 +48,17 @@ class AppActivity: AppCompatActivity() {
         Crossfade(navigationViewModel.currentScreen) { screen ->
             Surface(color = MaterialTheme.colors.background) {
                 when (screen) {
-                    is Screens.First -> Articles(navigateTo = navigationViewModel::navigateTo, apiService = appContext.apiService)
-                    is Screens.Second -> Article(navigateTo = navigationViewModel::navigateTo)
+                    is Screens.Articles ->
+                        Articles(
+                            navigateTo = navigationViewModel::navigateTo,
+                            apiService = appContext.apiService
+                        )
+                    is Screens.Article ->
+                        Article(
+                            articleId = screen.articleId,
+                            apiService = appContext.apiService,
+                            goBack = navigationViewModel::onBack
+                        )
                 }
             }
         }

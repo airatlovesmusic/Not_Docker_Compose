@@ -10,23 +10,31 @@ import androidx.lifecycle.ViewModel
 import com.airatlovesmusic.compose.utils.getMutableStateOf
 
 private const val SCREEN_NAME = "screen_name"
+private const val ARG_ARTICLE_ID = "article_id"
 
 enum class ScreenName {
-    FIRST, SECOND
+    ARTICLES, ARTICLE
 }
 
 sealed class Screens(val id: ScreenName) {
-    object First: Screens(ScreenName.FIRST)
-    object Second: Screens(ScreenName.SECOND)
+    object Articles: Screens(ScreenName.ARTICLES)
+
+    data class Article(
+        val articleId: String
+    ): Screens(ScreenName.ARTICLE)
 }
 
 fun Screens.toBundle() =
-    bundleOf(SCREEN_NAME to id.name)
+    bundleOf(SCREEN_NAME to id.name).also {
+        if (this is Screens.Article) {
+            it.putString(ARG_ARTICLE_ID, articleId)
+        }
+    }
 
 fun Bundle.toScreen(): Screens =
     when (getString(SCREEN_NAME)) {
-        ScreenName.FIRST.name -> Screens.First
-        ScreenName.FIRST.name -> Screens.Second
+        ScreenName.ARTICLES.name -> Screens.Articles
+        ScreenName.ARTICLES.name -> Screens.Article(getString(ARG_ARTICLE_ID, ""))
         else -> throw Exception("Screen haven't found")
     }
 
@@ -36,7 +44,7 @@ class NavigationViewModel(
 
     var currentScreen: Screens by savedStateHandle.getMutableStateOf(
         key = SCREEN_KEY,
-        default = Screens.First,
+        default = Screens.Articles,
         save = { it.toBundle() },
         restore = { it.toScreen() }
     )
@@ -44,8 +52,8 @@ class NavigationViewModel(
 
     @MainThread
     fun onBack(): Boolean {
-        val wasHandled = currentScreen != Screens.First
-        currentScreen = Screens.First
+        val wasHandled = currentScreen != Screens.Articles
+        currentScreen = Screens.Articles
         return wasHandled
     }
 

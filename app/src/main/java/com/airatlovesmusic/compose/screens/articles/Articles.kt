@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
@@ -45,12 +44,16 @@ fun Articles(navigateTo: (Screens) -> Unit, apiService: ApiService) {
                 viewState.value.articles.forEach {
                     Column(
                         modifier = Modifier
-                            .clickable(
-                                onClick = { navigateTo.invoke(Screens.Second) }
-                            )
+                            .clickable(onClick = { navigateTo.invoke(Screens.Article(it.url)) })
                     ) {
-                        Text(text = it.title, style = MaterialTheme.typography.h6)
-                        Text(text = it.url, style = MaterialTheme.typography.subtitle1)
+                        Text(
+                            text = it.title,
+                            style = MaterialTheme.typography.h6
+                        )
+                        Text(
+                            text = it.url,
+                            style = MaterialTheme.typography.subtitle1
+                        )
                     }
                 }
             }
