@@ -14,6 +14,7 @@ import io.ktor.http.*
 
 interface ApiClient {
     suspend fun getArticles(): List<Article>
+    suspend fun login(username: String, password: String)
 }
 
 class ApiClientImpl: ApiClient {
@@ -28,6 +29,10 @@ class ApiClientImpl: ApiClient {
         client.get<List<Article>>("$BASE_URL/$ARTICLES_ENDPOINT") {
             accept(ContentType.Application.Json)
         }
+
+    override suspend fun login(username: String, password: String) {
+
+    }
 
     companion object {
         const val BASE_URL = "https://raw.githubusercontent.com/airatlovesmusic"
