@@ -1,9 +1,9 @@
 package com.airatlovesmusic.compose.screens.articles
 
-import androidx.compose.foundation.ScrollableColumn
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumnFor
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
@@ -18,13 +18,6 @@ import com.airatlovesmusic.compose.Screens
 import com.airatlovesmusic.compose.widgets.toolbar
 import com.airatlovesmusic.core_network.ApiService
 import com.airatlovesmusic.model.Article
-
-val articles = (0..10).map {
-    Article(
-        title = "title$it",
-        url = "url$it"
-    )
-}
 
 @Composable
 fun Articles(navigateTo: (Screens) -> Unit, apiService: ApiService) {
@@ -44,25 +37,29 @@ private fun ArticlesContent(
     if (viewState.value.isRefreshing) {
         CircularProgressIndicator()
     }
-    ScrollableColumn(
-        verticalArrangement = Arrangement.Center
-    ) {
-        viewState.value.articles.forEach {
-            Column(
-                modifier = Modifier
-                    .clickable { navigateTo.invoke(Screens.Article(it.url)) }
-                    .padding(16.dp)
-            ) {
-                Text(
-                    text = it.title,
-                    style = MaterialTheme.typography.h6
-                )
-                Text(
-                    text = it.url,
-                    style = MaterialTheme.typography.subtitle1
-                )
-            }
-            Divider()
-        }
+    LazyColumnFor(items = viewState.value.articles) { item ->
+        ArticleItem(navigateTo, item)
     }
+}
+
+@Composable
+private fun ArticleItem(
+    navigateTo: (Screens) -> Unit,
+    item: Article
+) {
+    Column(
+        modifier = Modifier
+            .clickable { navigateTo.invoke(Screens.Article(item.url)) }
+            .padding(16.dp)
+    ) {
+        Text(
+            text = item.title,
+            style = MaterialTheme.typography.h6
+        )
+        Text(
+            text = item.url,
+            style = MaterialTheme.typography.subtitle1
+        )
+    }
+    Divider()
 }
