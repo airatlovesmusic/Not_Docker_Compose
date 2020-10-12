@@ -1,5 +1,5 @@
 include ':app'
-include ':core-network'
+include ':commons:network'
+include ':commons:global'
 include ':model'
 rootProject.name = "Compose"
-include ':core-common'

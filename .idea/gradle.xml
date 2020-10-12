@@ -13,8 +13,9 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
-            <option value="$PROJECT_DIR$/core-common" />
-            <option value="$PROJECT_DIR$/core-network" />
+            <option value="$PROJECT_DIR$/commons" />
+            <option value="$PROJECT_DIR$/commons/global" />
+            <option value="$PROJECT_DIR$/commons/network" />
             <option value="$PROJECT_DIR$/model" />
           </set>
         </option>

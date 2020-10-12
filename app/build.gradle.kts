@@ -51,7 +51,7 @@ kotlin {
 
 dependencies {
     implementation(project (":model"))
-    implementation(project(":core-network"))
+    implementation(project(":commons:network"))
 
     implementation(Dependencies.AndroidX.appcompat)
     implementation(Dependencies.AndroidX.coreKtx)
