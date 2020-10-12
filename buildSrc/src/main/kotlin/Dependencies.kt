@@ -1,23 +1,19 @@
 object Dependencies {
     const val androidGradlePlugin = "com.android.tools.build:gradle:4.2.0-alpha13"
-    const val jdkDesugar = "com.android.tools:desugar_jdk_libs:1.0.9"
-
-    const val junit = "junit:junit:4.13"
-
     const val material = "com.google.android.material:material:1.1.0"
 
     object Kotlin {
-        private const val version = "1.4.0"
+        private const val version = "1.4.10"
         const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$version"
         const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
         const val extensions = "org.jetbrains.kotlin:kotlin-android-extensions:$version"
+        const val serialization = "org.jetbrains.kotlin:kotlin-serialization:$version"
     }
 
     object Coroutines {
         private const val version = "1.3.9"
         const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
         const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version"
-        const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version"
     }
 
     object AndroidX {
@@ -35,27 +31,6 @@ object Dependencies {
             const val runtime = "androidx.compose.runtime:runtime:$version"
             const val runtimeLivedata = "androidx.compose.runtime:runtime-livedata:$version"
             const val tooling = "androidx.ui:ui-tooling:$version"
-            const val test = "androidx.compose.test:test-core:$version"
-            const val uiTest = "androidx.ui:ui-test:$version"
-        }
-
-        object Navigation {
-            private const val version = "2.3.0"
-            const val fragment = "androidx.navigation:navigation-fragment-ktx:$version"
-            const val uiKtx = "androidx.navigation:navigation-ui-ktx:$version"
-        }
-
-        object Test {
-            private const val version = "1.2.0"
-            const val core = "androidx.test:core:$version"
-            const val rules = "androidx.test:rules:$version"
-
-            object Ext {
-                private const val version = "1.1.2-rc01"
-                const val junit = "androidx.test.ext:junit-ktx:$version"
-            }
-
-            const val espressoCore = "androidx.test.espresso:espresso-core:3.2.0"
         }
 
         object Lifecycle {
@@ -69,13 +44,13 @@ object Dependencies {
     object Network {
 
         object OkHttp {
-            const val version = "4.7.2"
+            private const val version = "4.7.2"
             const val core = "com.squareup.okhttp3:okhttp:$version"
             const val logger = "com.squareup.okhttp3:logging-interceptor:$version"
         }
 
         object Retrofit {
-            const val version = "2.8.2"
+            private const val version = "2.8.2"
             const val core = "com.squareup.retrofit2:retrofit:$version"
             const val gson = "com.squareup.retrofit2:converter-gson:$version"
             const val coroutines = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
