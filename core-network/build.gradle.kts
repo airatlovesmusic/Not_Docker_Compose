@@ -2,8 +2,8 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-android-extensions")
+    id("kotlinx-serialization")
 }
-
 
 android {
     compileSdkVersion(30)
@@ -17,10 +17,10 @@ android {
 
 dependencies {
     implementation(project (":model"))
-    implementation(Dependencies.Network.OkHttp.core)
-    implementation(Dependencies.Network.OkHttp.logger)
-
-    implementation(Dependencies.Network.Retrofit.core)
-    implementation(Dependencies.Network.Retrofit.coroutines)
-    implementation(Dependencies.Network.Retrofit.gson)
+    implementation(Dependencies.Ktor.android)
+    implementation(Dependencies.Ktor.core)
+    implementation(Dependencies.Ktor.serialization)
+    implementation(Dependencies.Ktor.json)
+    implementation(Dependencies.Serialization.core)
+    implementation(Dependencies.Serialization.json)
 }

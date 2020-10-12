@@ -3,7 +3,7 @@ package com.airatlovesmusic.compose.screens.article
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.airatlovesmusic.core_network.ApiService
+import com.airatlovesmusic.core_network.ApiClient
 import com.airatlovesmusic.model.Article
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 class ArticleViewModel(
     private val id: String,
-    private val apiService: ApiService
+    private val apiClient: ApiClient
 ): ViewModel() {
 
     private val isLoading = MutableStateFlow(false)
@@ -35,7 +35,7 @@ class ArticleViewModel(
     private fun getArticle() {
         viewModelScope.launch {
             isLoading.value = true
-            runCatching { article.value = apiService.getArticles().find { it.url == id } }
+            runCatching { article.value = apiClient.getArticles().find { it.url == id } }
             isLoading.value = false
         }
     }
@@ -49,10 +49,10 @@ class ArticleViewModel(
 
 class Factory(
     private val id: String,
-    private val apiService: ApiService
+    private val apiClient: ApiClient
 ): ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(classModel: Class<T>): T {
-        return classModel.getConstructor(String::class.java, ApiService::class.java)
-            .newInstance(id, apiService)
+        return classModel.getConstructor(String::class.java, ApiClient::class.java)
+            .newInstance(id, apiClient)
     }
 }

@@ -2,6 +2,13 @@ object Dependencies {
     const val androidGradlePlugin = "com.android.tools.build:gradle:4.2.0-alpha13"
     const val material = "com.google.android.material:material:1.1.0"
 
+    object Serialization {
+        private const val version = "1.0.0"
+        const val core = "org.jetbrains.kotlinx:kotlinx-serialization-core:$version"
+        const val json = "org.jetbrains.kotlinx:kotlinx-serialization-json:$version"
+    }
+
+
     object Kotlin {
         private const val version = "1.4.10"
         const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$version"
@@ -41,19 +48,11 @@ object Dependencies {
         }
     }
 
-    object Network {
-
-        object OkHttp {
-            private const val version = "4.7.2"
-            const val core = "com.squareup.okhttp3:okhttp:$version"
-            const val logger = "com.squareup.okhttp3:logging-interceptor:$version"
-        }
-
-        object Retrofit {
-            private const val version = "2.8.2"
-            const val core = "com.squareup.retrofit2:retrofit:$version"
-            const val gson = "com.squareup.retrofit2:converter-gson:$version"
-            const val coroutines = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
-        }
+    object Ktor {
+        private const val version = "1.4.0"
+        const val core = "io.ktor:ktor-client-core:$version"
+        const val android = "io.ktor:ktor-client-android:$version"
+        const val json = "io.ktor:ktor-client-json:$version"
+        const val serialization = "io.ktor:ktor-client-serialization:$version"
     }
 }

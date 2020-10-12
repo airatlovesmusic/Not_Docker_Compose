@@ -16,12 +16,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.viewModel
 import com.airatlovesmusic.compose.Screens
 import com.airatlovesmusic.compose.widgets.toolbar
-import com.airatlovesmusic.core_network.ApiService
+import com.airatlovesmusic.core_network.ApiClient
 import com.airatlovesmusic.model.Article
 
 @Composable
-fun Articles(navigateTo: (Screens) -> Unit, apiService: ApiService) {
-    val viewModel: ArticlesViewModel = viewModel(factory = Factory(apiService))
+fun Articles(
+    navigateTo: (Screens) -> Unit,
+    apiClient: ApiClient
+) {
+    val viewModel: ArticlesViewModel = viewModel(factory = Factory(apiClient))
     val viewState = viewModel.state.collectAsState()
     Scaffold(
         topBar = { toolbar("Articles") },

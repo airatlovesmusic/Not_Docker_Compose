@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-android-extensions")
+    id("kotlinx-serialization")
 }
 
 android {
@@ -12,4 +13,8 @@ android {
         minSdkVersion(23)
         targetSdkVersion(30)
     }
+}
+
+dependencies {
+    implementation(Dependencies.Serialization.core)
 }

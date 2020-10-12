@@ -10,11 +10,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.setContent
 import com.airatlovesmusic.compose.screens.articles.Articles
 import com.airatlovesmusic.compose.screens.article.Article
-import com.airatlovesmusic.core_network.ApiService
-import com.airatlovesmusic.core_network.getApiService
+import com.airatlovesmusic.core_network.ApiClient
+import com.airatlovesmusic.core_network.ApiClientImpl
 
 data class AppContext(
-    val apiService: ApiService
+    val apiClient: ApiClient
 )
 
 class AppActivity: AppCompatActivity() {
@@ -23,7 +23,7 @@ class AppActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val appContext = AppContext(getApiService())
+        val appContext = AppContext(ApiClientImpl())
         setContent { App(appContext, navigationViewModel) }
     }
 
@@ -57,12 +57,12 @@ class AppActivity: AppCompatActivity() {
                     is Screens.Articles ->
                         Articles(
                             navigateTo = navigationViewModel::navigateTo,
-                            apiService = appContext.apiService
+                            apiClient = appContext.apiClient
                         )
                     is Screens.Article ->
                         Article(
                             articleId = screen.articleId,
-                            apiService = appContext.apiService,
+                            apiClient = appContext.apiClient,
                             goBack = navigationViewModel::onBack
                         )
                 }

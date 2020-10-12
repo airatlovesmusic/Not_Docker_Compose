@@ -12,18 +12,16 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.viewModel
-import com.airatlovesmusic.compose.Screens
-import com.airatlovesmusic.compose.widgets.toolbar
 import com.airatlovesmusic.compose.widgets.toolbarWithNavigationIcon
-import com.airatlovesmusic.core_network.ApiService
+import com.airatlovesmusic.core_network.ApiClient
 
 @Composable
 fun Article(
     articleId: String,
-    apiService: ApiService,
+    apiClient: ApiClient,
     goBack: () -> Unit
 ) {
-    val viewModel: ArticleViewModel = viewModel(factory = Factory(articleId, apiService))
+    val viewModel: ArticleViewModel = viewModel(factory = Factory(articleId, apiClient))
     val viewState = viewModel.state.collectAsState()
     Scaffold(
         topBar = { toolbarWithNavigationIcon("Article") { goBack() } },
