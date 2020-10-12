@@ -16,7 +16,7 @@ android {
 }
 
 dependencies {
-    implementation(project (":model"))
+    implementation(project(":model"))
     implementation(Dependencies.Ktor.android)
     implementation(Dependencies.Ktor.core)
     implementation(Dependencies.Ktor.serialization)

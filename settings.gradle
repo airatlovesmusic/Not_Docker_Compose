@@ -2,3 +2,4 @@ include ':app'
 include ':core-network'
 include ':model'
 rootProject.name = "Compose"
+include ':core-common'
