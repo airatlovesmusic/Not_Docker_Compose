@@ -17,6 +17,8 @@
             <option value="$PROJECT_DIR$/commons/global" />
             <option value="$PROJECT_DIR$/commons/network" />
             <option value="$PROJECT_DIR$/model" />
+            <option value="$PROJECT_DIR$/screens" />
+            <option value="$PROJECT_DIR$/screens/articles" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

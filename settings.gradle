@@ -3,3 +3,4 @@ include ':commons:network'
 include ':commons:global'
 include ':model'
 rootProject.name = "Compose"
+include ':screens:articles'
