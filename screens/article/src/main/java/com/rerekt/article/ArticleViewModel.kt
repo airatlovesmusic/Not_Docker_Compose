@@ -1,4 +1,4 @@
-package com.airatlovesmusic.compose.screens.article
+package com.rerekt.article
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

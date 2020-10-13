@@ -1,20 +1,17 @@
 plugins {
-    id ("com.android.application")
-    id ("kotlin-android")
-    id ("kotlin-android-extensions")
+    id("com.android.library")
+    id("kotlin-android")
+    id("kotlin-android-extensions")
 }
 
 android {
     compileSdkVersion(30)
+    buildToolsVersion("29.0.3")
 
     defaultConfig {
-        applicationId = "com.airatlovesmusic.compose"
         minSdkVersion(23)
         targetSdkVersion(30)
-        versionCode = 1
-        versionName = "1.0"
     }
-
     buildFeatures {
         compose = true
     }
@@ -33,7 +30,6 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
         useIR = true
     }
-
 }
 
 kotlin {
@@ -50,13 +46,10 @@ kotlin {
 }
 
 dependencies {
-    implementation(project (":model"))
     implementation(project(":commons:network"))
     implementation(project(":commons:global"))
     implementation(project(":commons:ui"))
-    implementation(project(":screens:articles"))
-    implementation(project(":screens:article"))
-
+    implementation(project(":model"))
     implementation(Dependencies.AndroidX.appcompat)
     implementation(Dependencies.AndroidX.coreKtx)
     implementation(Dependencies.AndroidX.activityKtx)
