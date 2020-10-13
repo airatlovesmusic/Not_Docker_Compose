@@ -1,4 +1,4 @@
-package com.rerekt.core_common.data
+package com.airatlovesmusic.core_common.data
 
 import android.content.Context
 

@@ -11,8 +11,8 @@ import androidx.compose.ui.platform.setContent
 import com.airatlovesmusic.core_network.ApiClient
 import com.airatlovesmusic.core_network.ApiClientImpl
 import com.airatlovesmusic.articles.Articles
-import com.rerekt.article.Article
-import com.rerekt.core_common.Screens
+import com.airatlovesmusic.article.Article
+import com.airatlovesmusic.core_common.Screens
 
 data class AppContext(
     val apiClient: ApiClient

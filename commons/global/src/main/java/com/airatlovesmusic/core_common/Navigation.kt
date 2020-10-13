@@ -1,4 +1,4 @@
-package com.rerekt.core_common
+package com.airatlovesmusic.core_common
 
 import android.os.Bundle
 import androidx.core.os.bundleOf

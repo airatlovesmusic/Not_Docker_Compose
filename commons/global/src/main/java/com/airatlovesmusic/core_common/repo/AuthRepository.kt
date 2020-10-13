@@ -1,7 +1,7 @@
-package com.rerekt.core_common.repo
+package com.airatlovesmusic.core_common.repo
 
 import com.airatlovesmusic.core_network.ApiClient
-import com.rerekt.core_common.data.Preferences
+import com.airatlovesmusic.core_common.data.Preferences
 
 class AuthRepository(
     private val preferences: Preferences,

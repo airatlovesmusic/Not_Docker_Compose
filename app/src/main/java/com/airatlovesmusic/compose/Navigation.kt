@@ -1,16 +1,14 @@
 package com.airatlovesmusic.compose
 
-import android.os.Bundle
 import androidx.annotation.MainThread
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
-import androidx.core.os.bundleOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.airatlovesmusic.compose.utils.getMutableStateOf
-import com.rerekt.core_common.Screens
-import com.rerekt.core_common.toBundle
-import com.rerekt.core_common.toScreen
+import com.airatlovesmusic.core_common.Screens
+import com.airatlovesmusic.core_common.toBundle
+import com.airatlovesmusic.core_common.toScreen
 
 class NavigationViewModel(
     savedStateHandle: SavedStateHandle

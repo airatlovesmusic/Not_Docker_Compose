@@ -1,4 +1,4 @@
-package com.rerekt.article
+package com.airatlovesmusic.article
 
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.Arrangement

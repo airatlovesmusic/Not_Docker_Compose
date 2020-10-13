@@ -17,7 +17,7 @@ import androidx.compose.ui.viewinterop.viewModel
 import com.airatlovesmusic.core_network.ApiClient
 import com.airatlovesmusic.model.Article
 import com.airatlovesmusic.ui.toolbar
-import com.rerekt.core_common.Screens
+import com.airatlovesmusic.core_common.Screens
 
 @Composable
 fun Articles(
