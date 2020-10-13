@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/commons/ui" />
             <option value="$PROJECT_DIR$/model" />
             <option value="$PROJECT_DIR$/screens" />
+            <option value="$PROJECT_DIR$/screens/article" />
             <option value="$PROJECT_DIR$/screens/articles" />
           </set>
         </option>

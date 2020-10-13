@@ -5,3 +5,4 @@ include ':model'
 rootProject.name = "Compose"
 include ':screens:articles'
 include ':commons:ui'
+include ':screens:article'
