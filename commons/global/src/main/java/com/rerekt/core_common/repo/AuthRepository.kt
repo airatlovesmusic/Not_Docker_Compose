@@ -15,4 +15,9 @@ class AuthRepository(
         password: String
     ) = apiClient.login(username, password)
 
+    suspend fun register(
+        username: String,
+        password: String
+    ) = apiClient.register(username, password)
+
 }

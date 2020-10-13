@@ -24,7 +24,9 @@ fun Article(
     val viewModel: ArticleViewModel = viewModel(factory = Factory(articleId, apiClient))
     val viewState = viewModel.state.collectAsState()
     Scaffold(
-        topBar = { toolbarWithNavigationIcon("Article") { goBack() } },
+        topBar = {
+            toolbarWithNavigationIcon("Article") { goBack() }
+        },
         bodyContent = { ArticleContent(viewState) }
     )
 }
