@@ -4,3 +4,4 @@ include ':commons:global'
 include ':model'
 rootProject.name = "Compose"
 include ':screens:articles'
+include ':commons:ui'

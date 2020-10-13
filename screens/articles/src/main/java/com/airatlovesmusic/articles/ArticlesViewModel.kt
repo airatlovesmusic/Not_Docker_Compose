@@ -1,4 +1,4 @@
-package com.airatlovesmusic.compose.screens.articles
+package com.airatlovesmusic.articles
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import com.airatlovesmusic.core_network.ApiClient
 import com.airatlovesmusic.model.Article
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 

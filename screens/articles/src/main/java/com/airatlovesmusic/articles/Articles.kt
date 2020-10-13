@@ -1,4 +1,4 @@
-package com.airatlovesmusic.compose.screens.articles
+package com.airatlovesmusic.articles
 
 import androidx.compose.foundation.Text
 import androidx.compose.foundation.clickable
@@ -14,10 +14,9 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.viewModel
-import com.airatlovesmusic.compose.Screens
-import com.airatlovesmusic.compose.widgets.toolbar
 import com.airatlovesmusic.core_network.ApiClient
 import com.airatlovesmusic.model.Article
+import com.rerekt.core_common.Screens
 
 @Composable
 fun Articles(
