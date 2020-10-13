@@ -1,4 +1,4 @@
-package com.airatlovesmusic.compose.widgets
+package com.airatlovesmusic.ui
 
 import androidx.compose.foundation.Icon
 import androidx.compose.foundation.Text
@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun toolbar(title: String) {
+public fun toolbar(title: String) {
     TopAppBar(
         title = {
             Text(
@@ -27,7 +27,7 @@ fun toolbar(title: String) {
 }
 
 @Composable
-fun toolbarWithNavigationIcon(
+public fun toolbarWithNavigationIcon(
     title: String,
     onNavigationIconClick: () -> Unit = {}
 ) {

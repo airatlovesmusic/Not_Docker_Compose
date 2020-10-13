@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.airatlovesmusic.core_network.ApiClient
 import com.airatlovesmusic.model.Article
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 

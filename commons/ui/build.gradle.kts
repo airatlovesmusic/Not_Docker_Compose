@@ -32,28 +32,7 @@ android {
     }
 }
 
-kotlin {
-    sourceSets {
-        all {
-            languageSettings.apply {
-                useExperimentalAnnotation("kotlin.ExperimentalStdlibApi")
-                useExperimentalAnnotation("kotlinx.coroutines.ExperimentalCoroutinesApi")
-                useExperimentalAnnotation("kotlinx.coroutines.FlowPreview")
-                useExperimentalAnnotation("kotlinx.coroutines.InternalCoroutinesApi")
-            }
-        }
-    }
-}
-
 dependencies {
-    implementation(project(":commons:network"))
-    implementation(project(":commons:global"))
-    implementation(project(":commons:ui"))
-    implementation(project(":model"))
-    implementation(Dependencies.AndroidX.appcompat)
-    implementation(Dependencies.AndroidX.coreKtx)
-    implementation(Dependencies.AndroidX.activityKtx)
-
     implementation(Dependencies.AndroidX.Compose.core)
     implementation(Dependencies.AndroidX.Compose.foundation)
     implementation(Dependencies.AndroidX.Compose.layout)
@@ -61,8 +40,4 @@ dependencies {
     implementation(Dependencies.AndroidX.Compose.runtime)
     implementation(Dependencies.AndroidX.Compose.runtimeLivedata)
     implementation(Dependencies.AndroidX.Compose.tooling)
-
-    implementation(Dependencies.AndroidX.Lifecycle.livedata)
-    implementation(Dependencies.AndroidX.Lifecycle.viewmodel)
-    implementation(Dependencies.AndroidX.Lifecycle.extensions)
 }

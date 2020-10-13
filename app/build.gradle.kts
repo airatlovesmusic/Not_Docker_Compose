@@ -53,6 +53,8 @@ dependencies {
     implementation(project (":model"))
     implementation(project(":commons:network"))
     implementation(project(":commons:global"))
+    implementation(project(":commons:ui"))
+    implementation(project(":screens:articles"))
 
     implementation(Dependencies.AndroidX.appcompat)
     implementation(Dependencies.AndroidX.coreKtx)

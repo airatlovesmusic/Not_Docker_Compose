@@ -12,7 +12,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.viewModel
-import com.airatlovesmusic.compose.widgets.toolbarWithNavigationIcon
+import com.airatlovesmusic.ui.toolbarWithNavigationIcon
 import com.airatlovesmusic.core_network.ApiClient
 
 @Composable
