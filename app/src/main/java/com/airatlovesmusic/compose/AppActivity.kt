@@ -13,10 +13,10 @@ import com.airatlovesmusic.core_network.ApiClientImpl
 import com.airatlovesmusic.articles.Articles
 import com.airatlovesmusic.article.Article
 import com.airatlovesmusic.core_common.Screens
-
-data class AppContext(
-    val apiClient: ApiClient
-)
+import org.koin.androidx.compose.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.startKoin
+import org.koin.dsl.module
 
 class AppActivity: AppCompatActivity() {
 
@@ -24,8 +24,12 @@ class AppActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val appContext = AppContext(ApiClientImpl())
-        setContent { App(appContext, navigationViewModel) }
+        startKoin {
+            module {
+                single<ApiClient> { ApiClientImpl() }
+            }
+        }
+        setContent { App(navigationViewModel) }
     }
 
     override fun onBackPressed() {
@@ -35,21 +39,14 @@ class AppActivity: AppCompatActivity() {
     }
 
     @Composable
-    fun App(
-        appContext: AppContext,
-        navigationViewModel: NavigationViewModel
-    ) {
+    fun App(navigationViewModel: NavigationViewModel) {
         AppTheme {
-            AppContent(
-                appContext = appContext,
-                navigationViewModel = navigationViewModel
-            )
+            AppContent(navigationViewModel = navigationViewModel)
         }
     }
 
     @Composable
     private fun AppContent(
-        appContext: AppContext,
         navigationViewModel: NavigationViewModel
     ) {
         Crossfade(navigationViewModel.currentScreen) { screen ->
@@ -57,13 +54,11 @@ class AppActivity: AppCompatActivity() {
                 when (screen) {
                     is Screens.Articles ->
                         Articles(
-                            navigateTo = navigationViewModel::navigateTo,
-                            apiClient = appContext.apiClient
+                            navigateTo = navigationViewModel::navigateTo
                         )
                     is Screens.Article ->
                         Article(
                             articleId = screen.articleId,
-                            apiClient = appContext.apiClient,
                             goBack = navigationViewModel::onBack
                         )
                 }

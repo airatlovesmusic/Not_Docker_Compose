@@ -14,12 +14,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.viewModel
 import com.airatlovesmusic.ui.toolbarWithNavigationIcon
 import com.airatlovesmusic.core_network.ApiClient
+import org.koin.androidx.compose.get
 
 @Composable
 fun Article(
     articleId: String,
-    apiClient: ApiClient,
-    goBack: () -> Unit
+    goBack: () -> Unit,
+    apiClient: ApiClient = get()
 ) {
     val viewModel: ArticleViewModel = viewModel(factory = Factory(articleId, apiClient))
     val viewState = viewModel.state.collectAsState()

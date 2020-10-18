@@ -18,11 +18,12 @@ import com.airatlovesmusic.core_network.ApiClient
 import com.airatlovesmusic.model.Article
 import com.airatlovesmusic.ui.toolbar
 import com.airatlovesmusic.core_common.Screens
+import org.koin.androidx.compose.get
 
 @Composable
 fun Articles(
     navigateTo: (Screens) -> Unit,
-    apiClient: ApiClient
+    apiClient: ApiClient = get()
 ) {
     val viewModel: ArticlesViewModel = viewModel(factory = Factory(apiClient))
     val viewState = viewModel.state.collectAsState()
