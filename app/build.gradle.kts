@@ -72,4 +72,7 @@ dependencies {
     implementation(Dependencies.AndroidX.Lifecycle.livedata)
     implementation(Dependencies.AndroidX.Lifecycle.viewmodel)
     implementation(Dependencies.AndroidX.Lifecycle.extensions)
+
+    implementation(Dependencies.Koin.core)
+    implementation(Dependencies.Koin.compose)
 }

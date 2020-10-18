@@ -8,6 +8,11 @@ object Dependencies {
         const val json = "org.jetbrains.kotlinx:kotlinx-serialization-json:$version"
     }
 
+    object Koin {
+        private const val version = "2.2.0-rc-3"
+        const val core = "org.koin:koin-core:$version"
+        const val compose = "org.koin:koin-androidx-compose:$version"
+    }
 
     object Kotlin {
         private const val version = "1.4.10"
