@@ -37,32 +37,4 @@ class AppActivity: AppCompatActivity() {
             super.onBackPressed()
         }
     }
-
-    @Composable
-    fun App(navigationViewModel: NavigationViewModel) {
-        AppTheme {
-            AppContent(navigationViewModel = navigationViewModel)
-        }
-    }
-
-    @Composable
-    private fun AppContent(
-        navigationViewModel: NavigationViewModel
-    ) {
-        Crossfade(navigationViewModel.currentScreen) { screen ->
-            Surface(color = MaterialTheme.colors.background) {
-                when (screen) {
-                    is Screens.Articles ->
-                        Articles(
-                            navigateTo = navigationViewModel::navigateTo
-                        )
-                    is Screens.Article ->
-                        Article(
-                            articleId = screen.articleId,
-                            goBack = navigationViewModel::onBack
-                        )
-                }
-            }
-        }
-    }
 }
