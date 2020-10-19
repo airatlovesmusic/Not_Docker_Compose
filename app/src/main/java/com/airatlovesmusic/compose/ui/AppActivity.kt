@@ -1,4 +1,4 @@
-package com.airatlovesmusic.compose
+package com.airatlovesmusic.compose.ui
 
 import android.os.Bundle
 import androidx.activity.viewModels

@@ -1,4 +1,4 @@
-package com.airatlovesmusic.compose
+package com.airatlovesmusic.compose.ui
 
 import androidx.compose.animation.Crossfade
 import androidx.compose.material.MaterialTheme

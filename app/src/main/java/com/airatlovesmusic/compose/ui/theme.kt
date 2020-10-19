@@ -1,4 +1,4 @@
-package com.airatlovesmusic.compose
+package com.airatlovesmusic.compose.ui
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme

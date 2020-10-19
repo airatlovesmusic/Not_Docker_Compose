@@ -1,4 +1,4 @@
-package com.airatlovesmusic.compose
+package com.airatlovesmusic.compose.ui
 
 import androidx.annotation.MainThread
 import androidx.compose.runtime.getValue
